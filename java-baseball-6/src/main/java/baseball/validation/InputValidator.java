@@ -1,6 +1,6 @@
 package baseball.validation;
 
-import static baseball.constants.MessageConstants.*;
+import static baseball.constants.ErrorMessageConstants.*;
 
 import java.util.HashSet;
 

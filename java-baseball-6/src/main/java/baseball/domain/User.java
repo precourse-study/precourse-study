@@ -1,11 +1,11 @@
-package baseball.util;
+package baseball.domain;
 
 import baseball.validation.InputValidator;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserUtil {
+public class User {
 
     public List<Integer> setUserNum() {
         List<Integer> userNum = new ArrayList<>();

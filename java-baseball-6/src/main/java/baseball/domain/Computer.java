@@ -1,4 +1,4 @@
-package baseball.util;
+package baseball.domain;
 
 import static baseball.constants.NumberConstants.FIRST_RANGE;
 import static baseball.constants.NumberConstants.INPUT_LENGTH;
@@ -8,7 +8,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComputerUtil {
+public class Computer {
 
     public List<Integer> generateNums() {
         List<Integer> computerNum = new ArrayList<>();
