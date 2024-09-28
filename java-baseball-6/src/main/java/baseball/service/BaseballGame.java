@@ -1,11 +1,11 @@
 package baseball.service;
 
-import static baseball.constants.MessageConstants.*;
+import static baseball.constants.ErrorMessageConstants.GAME_CONTROL_EXCEPTION_MSG;
 import static baseball.constants.NumberConstants.*;
 
-import baseball.util.ComputerUtil;
+import baseball.domain.Computer;
 import baseball.util.MessageUtil;
-import baseball.util.UserUtil;
+import baseball.domain.User;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.List;
 public class BaseballGame {
     private List<Integer> computerNum = new ArrayList<>();
     private List<Integer> userNum = new ArrayList<>();
-    private ComputerUtil computerUtil = new ComputerUtil();
+    private Computer computer = new Computer();
     private MessageUtil messageUtil = new MessageUtil();
-    private UserUtil userUtil = new UserUtil();
+    private User user = new User();
 
     public BaseballGame() {
         messageUtil.printStartMsg();
@@ -23,7 +23,7 @@ public class BaseballGame {
 
     public void startGame() {
         while (true) {
-            computerNum = computerUtil.generateNums();
+            computerNum = computer.generateNums();
             if (!playGameLoop()) {
                 break;
             }
@@ -34,7 +34,7 @@ public class BaseballGame {
     private boolean playGameLoop() {
         while (true) {
             messageUtil.printInputMsg();
-            userNum = userUtil.setUserNum();
+            userNum = user.setUserNum();
             if (getResult()) {
                 messageUtil.printSuccessMsg();
                 return isFinish();
