@@ -1,6 +1,5 @@
 package racingcar.service;
 
-import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,24 +7,19 @@ import racingcar.domain.Car;
 import racingcar.dto.ResultResponseDto;
 
 public class RacingService {
+    private final MoveRule moveRule;
 
-    public static final int MIN_NUM = 0;
-    public static final int MAX_NUM = 9;
-    public static final int BASE_NUM = 4;
+    public RacingService(MoveRule moveRule) {
+        this.moveRule = moveRule;
+    }
 
     public List<ResultResponseDto> playRacingCar(List<Car> carList) {
         List<ResultResponseDto> results = new ArrayList<>();
 
         for (Car car : carList) {
-            int randomValue = Randoms.pickNumberInRange(MIN_NUM, MAX_NUM);
-            if (randomValue >= BASE_NUM) {
-                car.move();
-            }
+            car.move(moveRule.tryMove());
         }
-
-        for (Car car : carList) {
-            results.add(ResultResponseDto.of(car.getName(), car.getPositionDisplay()));
-        }
+        addResult(carList, results);
 
         return results;
     }
@@ -40,6 +34,12 @@ public class RacingService {
                 .filter(car -> car.getPosition() == maxPosition)
                 .map(Car::getName)
                 .collect(Collectors.toList());
+    }
+
+    private void addResult(List<Car> carList, List<ResultResponseDto> results) {
+        for (Car car : carList) {
+            results.add(ResultResponseDto.of(car.getName(), car.getPositionDisplay()));
+        }
     }
 
 }
