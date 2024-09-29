@@ -26,7 +26,7 @@ public class AppConfig {
     }
 
     public InputConverter inputConverter() {
-        return new InputConverter();
+        return InputConverter.getInstance();
     }
 
     public InputValidator inputValidator() {
