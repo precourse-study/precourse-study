@@ -1,7 +1,5 @@
 package racingcar.service;
 
-import static racingcar.constant.NumberConst.*;
-
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +8,10 @@ import racingcar.domain.Car;
 import racingcar.dto.ResultResponseDto;
 
 public class RacingService {
+
+    public static final int MIN_NUM = 0;
+    public static final int MAX_NUM = 9;
+    public static final int BASE_NUM = 4;
 
     public List<ResultResponseDto> playRacingCar(List<Car> carList) {
         List<ResultResponseDto> results = new ArrayList<>();
