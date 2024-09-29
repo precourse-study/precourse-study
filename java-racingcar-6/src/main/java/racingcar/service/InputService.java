@@ -20,12 +20,12 @@ public class InputService {
     public List<Car> requestCarList() {
         String input = inputView.readInput();
         List<String> carStrings = inputConverter.convertToStringList(input);
-        carStrings.forEach(inputValidator::validate);
+        carStrings.forEach(inputValidator::validateName);
         return inputConverter.converToCarList(carStrings);
     }
 
     public int requestTrial() {
         String trial = inputView.readInput();
-        return Integer.parseInt(trial);
+        return inputValidator.validateTrialNum(trial);
     }
 }
