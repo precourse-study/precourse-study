@@ -12,6 +12,6 @@ public class InputConverter {
     }
 
     public List<Car> converToCarList(List<String> carStrings) {
-        return carStrings.stream().map(Car::of).toList();
+        return carStrings.stream().map(Car::create).toList();
     }
 }
