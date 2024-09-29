@@ -2,14 +2,14 @@ package racingcar.config;
 
 import racingcar.controller.RacingCarController;
 import racingcar.domain.Car;
-import racingcar.util.InputConvertor;
-import racingcar.util.ListValidator;
-import racingcar.util.NumberGenerator;
-import racingcar.util.RacingCarInputConvertor;
-import racingcar.util.RacingCarListValidator;
-import racingcar.util.RacingCarStringValidator;
-import racingcar.util.RandomNumberGenerator;
-import racingcar.util.StringValidator;
+import racingcar.util.convertor.InputConvertor;
+import racingcar.util.validator.ListValidator;
+import racingcar.util.generator.NumberGenerator;
+import racingcar.util.convertor.RacingCarInputConvertor;
+import racingcar.util.validator.RacingCarListValidator;
+import racingcar.util.validator.RacingCarStringValidator;
+import racingcar.util.generator.RandomNumberGenerator;
+import racingcar.util.validator.StringValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

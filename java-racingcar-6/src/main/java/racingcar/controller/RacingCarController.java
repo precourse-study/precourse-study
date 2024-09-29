@@ -8,10 +8,10 @@ import racingcar.domain.Race;
 import racingcar.dto.CarDto;
 import racingcar.error.ErrorType;
 import racingcar.error.exception.InvalidAttemptException;
-import racingcar.util.InputConvertor;
-import racingcar.util.ListValidator;
-import racingcar.util.NumberGenerator;
-import racingcar.util.StringValidator;
+import racingcar.util.convertor.InputConvertor;
+import racingcar.util.validator.ListValidator;
+import racingcar.util.generator.NumberGenerator;
+import racingcar.util.validator.StringValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 

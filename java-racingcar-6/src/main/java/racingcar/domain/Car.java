@@ -4,8 +4,8 @@ import static racingcar.constant.Rule.*;
 
 import java.util.Objects;
 
-import racingcar.util.NumberGenerator;
-import racingcar.util.StringValidator;
+import racingcar.util.generator.NumberGenerator;
+import racingcar.util.validator.StringValidator;
 
 public class Car {
 

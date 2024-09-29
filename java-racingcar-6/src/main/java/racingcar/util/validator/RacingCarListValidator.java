@@ -1,11 +1,10 @@
-package racingcar.util;
+package racingcar.util.validator;
 
 import static racingcar.error.ErrorType.*;
 
 import java.util.List;
 
 import racingcar.domain.Car;
-import racingcar.error.ErrorType;
 import racingcar.error.exception.InvalidCarException;
 
 public class RacingCarListValidator implements ListValidator<Car> {

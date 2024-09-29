@@ -1,6 +1,5 @@
-package racingcar.util;
+package racingcar.util.convertor;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class RacingCarInputConvertor implements InputConvertor<String> {

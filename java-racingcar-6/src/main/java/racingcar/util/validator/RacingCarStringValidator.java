@@ -1,9 +1,8 @@
-package racingcar.util;
+package racingcar.util.validator;
 
 import static racingcar.constant.Rule.*;
 import static racingcar.error.ErrorType.*;
 
-import racingcar.error.ErrorType;
 import racingcar.error.exception.InvalidCarException;
 
 public class RacingCarStringValidator implements StringValidator {
