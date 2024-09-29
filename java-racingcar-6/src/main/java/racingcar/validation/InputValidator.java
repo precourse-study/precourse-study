@@ -8,6 +8,9 @@ import racingcar.domain.Car;
 
 public class InputValidator {
     public void validateName(String input) {
+        if(input.isEmpty()) {
+            throw new IllegalArgumentException(NAME_NULL_POINTER_EXCEPTION_MSG);
+        }
         if(!isValidLength(input)) {
             throw new IllegalArgumentException(NAME_LENGTH_EXCEPTION_MSG);
         }
@@ -20,6 +23,9 @@ public class InputValidator {
     }
 
     public int validateTrialNum(String trial) {
+        if(trial.isEmpty()) {
+            throw new IllegalArgumentException(NUM_NULL_POINTER_EXCEPTION_MSG);
+        }
         try {
             return Integer.parseInt(trial);
         } catch (NumberFormatException e) {
@@ -28,6 +34,6 @@ public class InputValidator {
     }
 
     private boolean isValidLength(String name) {
-        return name.length() <= NAME_LENGTH;
+        return name.length() <= NAME_MAX_LENGTH && name.length() >= NAME_MIN_LENGTH;
     }
 }
