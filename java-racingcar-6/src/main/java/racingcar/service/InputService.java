@@ -21,7 +21,9 @@ public class InputService {
         String input = inputView.readInput();
         List<String> carStrings = inputConverter.convertToStringList(input);
         carStrings.forEach(inputValidator::validateName);
-        return inputConverter.converToCarList(carStrings);
+        List<Car> cars = inputConverter.converToCarList(carStrings);
+        inputValidator.validateDuplicate(carStrings, cars);
+        return cars;
     }
 
     public int requestTrial() {
