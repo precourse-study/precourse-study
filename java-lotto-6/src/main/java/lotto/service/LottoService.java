@@ -16,12 +16,15 @@ import lotto.domain.Lotto;
 import lotto.dto.LottoDto;
 import lotto.dto.LottoResultDto;
 import lotto.util.generation.LottoGenerator;
+import lotto.util.validation.LottoValidator;
 
 public class LottoService {
     private final LottoGenerator lottoGenerator;
+    private final LottoValidator lottoValidator;
 
-    public LottoService(LottoGenerator lottoGenerator) {
+    public LottoService(LottoGenerator lottoGenerator, LottoValidator lottoValidator) {
         this.lottoGenerator = lottoGenerator;
+        this.lottoValidator = lottoValidator;
     }
 
     public int calculateLottoCount(int amount) {
@@ -33,7 +36,7 @@ public class LottoService {
 
     public List<Lotto> generateLotto(int count) {
         return IntStream.range(0, count)
-                .mapToObj(i -> new Lotto(lottoGenerator.generate()))
+                .mapToObj(i -> new Lotto(lottoGenerator.generate(), lottoValidator))
                 .toList();
     }
 

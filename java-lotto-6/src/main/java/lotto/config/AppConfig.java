@@ -27,7 +27,7 @@ public class AppConfig {
     }
 
     public LottoService lottoService() {
-        return new LottoService(lottoGenerator());
+        return new LottoService(lottoGenerator(), lottoValidator());
     }
 
     public LottoController lottoController() {
