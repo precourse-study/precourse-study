@@ -1,8 +1,7 @@
 package lotto.util.validation;
 
 import static lotto.constants.ErrorType.*;
-import static lotto.constants.NumberConst.RANGE_MAX;
-import static lotto.constants.NumberConst.RANGE_MIN;
+import static lotto.constants.NumberConst.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -54,7 +53,7 @@ public class BasicLottoValidator implements LottoValidator {
 
     @Override
     public void validateWinningNum(List<Integer> winningNum) {
-        if (winningNum.size() != 6) {
+        if (winningNum.size() != NUMBER) {
             throw new IllegalArgumentException(INSUFFICIENT_OR_EXCESSIVE_NUMBERS.getMessage());
         }
     }
