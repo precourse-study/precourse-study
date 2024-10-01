@@ -13,7 +13,7 @@ public class Message {
     public static final String WINNING_STATISTICS = "당첨 통계\n---";
     public static final String REVENUE_RESULT = "총 수익률은 %.1f%%입니다.";
     private static final String FIFTH_WINNER = "3개 일치 (" + String.format("%,d", THREE_MATCHES_PRIZE) + "원) - %d개";
-    private static final String FOURTH_WINNER = "4개 일치 (" + String.format("%,d", FOUR_MATCHES_PRIZE) + " 원) - %d개";
+    private static final String FOURTH_WINNER = "4개 일치 (" + String.format("%,d", FOUR_MATCHES_PRIZE) + "원) - %d개";
     private static final String THIRD_WINNER = "5개 일치 (" + String.format("%,d", FIVE_MATCHES_PRIZE) + "원) - %d개";
     private static final String SECOND_WINNER =
             "5개 일치, 보너스 볼 일치 (" + String.format("%,d", FIVE_BONUS_MATCHES_PRIZE) + "원) - %d개";
