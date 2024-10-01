@@ -7,5 +7,5 @@ public interface LottoValidator {
     void validateLottoNum(int num);
     void validateNoDuplicate(List<Integer> numbers);
     void validateBonusNum(List<Integer> winningNum, int bonus);
-    void validateWinningNum(List<Integer> winningNum);
+    void validateLottoSize(List<Integer> lotto);
 }

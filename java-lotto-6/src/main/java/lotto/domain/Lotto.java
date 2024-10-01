@@ -1,29 +1,19 @@
 package lotto.domain;
 
-import static lotto.constants.ErrorType.*;
-import static lotto.constants.NumberConst.*;
-
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import lotto.util.validation.LottoValidator;
 
 public class Lotto {
     private final List<Integer> numbers;
 
-    public Lotto(List<Integer> numbers) {
-        validate(numbers);
+    public Lotto(List<Integer> numbers, LottoValidator lottoValidator) {
+        validate(numbers, lottoValidator);
         this.numbers = numbers.stream().sorted().toList();
     }
 
-    private void validate(List<Integer> numbers) {
-        if (numbers.size() != NUMBER) {
-            throw new IllegalArgumentException(INSUFFICIENT_OR_EXCESSIVE_NUMBERS.getMessage());
-        }
-
-        Set<Integer> uniqueNumbers = new HashSet<>(numbers);
-        if (uniqueNumbers.size() != numbers.size()) {
-            throw new IllegalArgumentException(DUPLICATION_NUM.getMessage());
-        }
+    private void validate(List<Integer> numbers, LottoValidator lottoValidator) {
+        lottoValidator.validateNoDuplicate(numbers);
+        lottoValidator.validateLottoSize(numbers);
     }
 
     public List<Integer> getNumbers() {

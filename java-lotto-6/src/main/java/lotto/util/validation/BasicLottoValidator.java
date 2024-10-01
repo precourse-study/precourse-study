@@ -52,8 +52,8 @@ public class BasicLottoValidator implements LottoValidator {
     }
 
     @Override
-    public void validateWinningNum(List<Integer> winningNum) {
-        if (winningNum.size() != NUMBER) {
+    public void validateLottoSize(List<Integer> lotto) {
+        if (lotto.size() != NUMBER) {
             throw new IllegalArgumentException(INSUFFICIENT_OR_EXCESSIVE_NUMBERS.getMessage());
         }
     }

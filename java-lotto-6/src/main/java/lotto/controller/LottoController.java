@@ -75,7 +75,7 @@ public class LottoController {
                     .map(String::trim)
                     .map(this::validateInput)
                     .toList();
-            lottoValidator.validateWinningNum(winningNum);
+            lottoValidator.validateLottoSize(winningNum);
             lottoValidator.validateNoDuplicate(winningNum);
             return winningNum;
         });
