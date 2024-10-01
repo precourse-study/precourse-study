@@ -24,7 +24,7 @@ public class LottoService {
         this.lottoGenerator = lottoGenerator;
     }
 
-    public int purchaseLotto(int amount) {
+    public int calculateLottoCount(int amount) {
         if (amount % PRICE != 0) {
             throw new IllegalArgumentException(INVALID_PURCHASE_PRICE.getMessage());
         }

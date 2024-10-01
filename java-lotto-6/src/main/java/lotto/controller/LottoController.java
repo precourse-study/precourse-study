@@ -7,7 +7,7 @@ import lotto.domain.Lotto;
 import lotto.dto.LottoDto;
 import lotto.dto.LottoResultDto;
 import lotto.service.LottoService;
-import lotto.util.validation.InputValidator;
+import lotto.util.validation.LottoValidator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -17,14 +17,14 @@ public class LottoController {
     private final OutputView outputView;
     private final InputView inputView;
     private final LottoService lottoService;
-    private final InputValidator inputValidator;
+    private final LottoValidator lottoValidator;
 
     public LottoController(OutputView outputView, InputView inputView, LottoService lottoService,
-                           InputValidator inputValidator) {
+                           LottoValidator basicLottoValidator) {
         this.outputView = outputView;
         this.inputView = inputView;
         this.lottoService = lottoService;
-        this.inputValidator = inputValidator;
+        this.lottoValidator = basicLottoValidator;
     }
 
     public void run() {
@@ -48,18 +48,18 @@ public class LottoController {
         return retryUntilValidInput(() -> {
             outputView.printStartMsg();
             int amount = parseInt(inputView.readInput());
-            return lottoService.purchaseLotto(amount);
+            return lottoService.calculateLottoCount(amount);
         });
     }
 
     private int parseInt(String input) {
-        inputValidator.isValidInteger(input);
+        lottoValidator.validateFormat(input);
         return Integer.parseInt(input);
     }
 
     private int validateInput(String input) {
         int parsed = parseInt(input);
-        inputValidator.isValidRange(parsed);
+        lottoValidator.validateLottoNum(parsed);
         return parsed;
     }
 
@@ -75,8 +75,8 @@ public class LottoController {
                     .map(String::trim)
                     .map(this::validateInput)
                     .toList();
-            inputValidator.validateWinningNumSize(winningNum);
-            inputValidator.validateNoDuplicates(winningNum);
+            lottoValidator.validateWinningNum(winningNum);
+            lottoValidator.validateNoDuplicate(winningNum);
             return winningNum;
         });
     }
@@ -86,7 +86,7 @@ public class LottoController {
             outputView.printBonusNumMsg();
             String input = inputView.readInput();
             int bonus = validateInput(input);
-            inputValidator.validateNotInWinningNum(winningNum, bonus);
+            lottoValidator.validateBonusNum(winningNum, bonus);
             return bonus;
         });
     }

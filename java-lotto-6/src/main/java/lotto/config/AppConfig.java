@@ -4,7 +4,8 @@ import lotto.controller.LottoController;
 import lotto.service.LottoService;
 import lotto.util.generation.LottoGenerator;
 import lotto.util.generation.RandomLottoGenerator;
-import lotto.util.validation.InputValidator;
+import lotto.util.validation.LottoValidator;
+import lotto.util.validation.BasicLottoValidator;
 import lotto.view.InputView;
 import lotto.view.OutputView;
 
@@ -17,8 +18,8 @@ public class AppConfig {
         return new OutputView();
     }
 
-    public InputValidator inputValidator() {
-        return new InputValidator();
+    public LottoValidator lottoValidator() {
+        return BasicLottoValidator.getInstance();
     }
 
     public LottoGenerator lottoGenerator() {
@@ -30,6 +31,6 @@ public class AppConfig {
     }
 
     public LottoController lottoController() {
-        return new LottoController(outputView(), inputView(), lottoService(), inputValidator());
+        return new LottoController(outputView(), inputView(), lottoService(), lottoValidator());
     }
 }
